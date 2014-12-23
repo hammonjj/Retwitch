@@ -1,0 +1,114 @@
+@import url("reset.css");
+/*********************/
+/* Class Definitions */
+/*********************/
+.user_header {
+    float: right;
+    padding: 5px 5px 5px 5px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+	width: 70%;
+	padding: 5px 5px 5px 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+th,td {
+    padding: 5px;
+}
+
+/* unvisited link */
+a:link {
+    color: #ffffff;
+}
+
+/* visited link */
+a:visited {
+    color: #ffffff;
+}
+
+/* mouse over link */
+a:hover {
+    color: #5c8499;
+}
+
+/* selected link */
+a:active {
+    color: #5c8499;
+}
+
+/**********/
+/* Layout */
+/**********/
+body {
+	background:#1a1a1a url(/img/bg.png) center top no-repeat;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color:#ffffff
+}
+
+p {
+    padding: 10px;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#headerwrap {
+    width: 1000px;
+    float: left;
+    margin: 0 auto;
+}
+
+#header {
+    height: 40px;
+    /*border-radius: 10px;*/
+    /*border: 1px solid #eb521f*/;
+    margin: 5px;
+}
+
+#contentwrap {
+    width: 650px;
+    float: left;
+    margin: 0 auto;
+}
+
+#content {
+    /*border-radius: 10px;
+    border: 1px solid #5c8499;*/
+    margin: 5px;
+}
+
+#rightcolumnwrap {
+    width: 350px;
+    float: left;
+    margin: 0 auto;
+	overflow-y: scroll;
+}
+
+#rightcolumn {
+    border-radius: 10px;
+    border: 1px solid #5c8499;
+    margin: 5px;
+}
+
+#footerwrap {
+    width: 1000px;
+    float: left;
+    margin: 0 auto;
+    clear: both;
+}
+
+#footer {
+    height: 40px;
+    /*border-radius: 10px;
+    border: 1px solid #1feb52;*/
+    margin: 5px;
+}
