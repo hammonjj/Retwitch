@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 $conn = new mysqli("mysql.retwitch.pingdynamic.com", "retwitch_root", "shadogi1", "retwitch_dev");
-$result = $conn->query("SELECT P_VodId, VodName, Stream, ReplayTime, Duration FROM _" . $_GET["userid"]);
+$result = $conn->query("SELECT P_VodId, VodName, Stream, ReplayTime, Duration, Recorded FROM _" . $_GET["userid"]);
 
 $outp = "[";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -12,7 +12,8 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
 	$outp .= '"VodId":"'   . $rs["P_VodId"] . '",';
     $outp .= '"Stream":"'   . $rs["Stream"] . '",';
     $outp .= '"ReplayTime":"'. $rs["ReplayTime"] . '",';
-    $outp .= '"Duration":"'. $rs["Duration"] . '"}';
+    $outp .= '"Duration":"'. $rs["Duration"] . '",';
+    $outp .= '"Recorded":"'. $rs["Recorded"] . '"}';
 }
 $outp .="]";
 

@@ -29,7 +29,9 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
 	<script type="text/javascript" src="../scripts/CreateTwitchWindow.js" ></script>
+	<script type="text/javascript" src="../scripts/UserLoginModule.js" ></script>
 	<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>

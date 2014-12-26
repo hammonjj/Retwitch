@@ -41,11 +41,11 @@ if (isset($login)) {
             echo $error;
         }
     }
-    if ($login->messages) {
-        foreach ($login->messages as $message) {
-            echo $message;
-        }
-    }
+//    if ($login->messages) {
+//        foreach ($login->messages as $message) {
+//            echo $message;
+//        }
+//    }
 }
 ?>
 

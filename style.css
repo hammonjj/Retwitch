@@ -58,19 +58,17 @@ p {
 
 #wrapper {
     margin: 0 auto;
-    width: 1000px;
+    width: 1150px;
 }
 
 #headerwrap {
-    width: 1000px;
+    width: 1150px;
     float: left;
     margin: 0 auto;
 }
 
 #header {
     height: 40px;
-    /*border-radius: 10px;*/
-    /*border: 1px solid #eb521f*/;
     margin: 5px;
 }
 
@@ -81,16 +79,14 @@ p {
 }
 
 #content {
-    /*border-radius: 10px;
-    border: 1px solid #5c8499;*/
     margin: 5px;
 }
 
 #rightcolumnwrap {
-    width: 350px;
+    width: 500px;
     float: left;
     margin: 0 auto;
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 }
 
 #rightcolumn {
@@ -100,7 +96,7 @@ p {
 }
 
 #footerwrap {
-    width: 1000px;
+    width: 1150px;
     float: left;
     margin: 0 auto;
     clear: both;
@@ -108,7 +104,5 @@ p {
 
 #footer {
     height: 40px;
-    /*border-radius: 10px;
-    border: 1px solid #1feb52;*/
     margin: 5px;
 }

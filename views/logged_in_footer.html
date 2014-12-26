@@ -1,64 +1,38 @@
+<div id="logged_in_footer" ng-app="userLoginModule" ng-controller="vodController">
+
 <div id="contentwrap">
     <div id="content">
         <div id="twitch_embed_player"></div>
         <p>
         Vod Url: <input type="text" id="vodUrl" value="">
-        <button onclick="getVODUrl()">Load Video</button>
+        <button ng-click="loadNewVod()" >Load Video</button>
     </div>
 </div>
 
 <div id="rightcolumnwrap">
-    <div id="rightcolumn" ng-app="" ng-controller="vodController">
+    <div id="rightcolumn" >
         <table>
             <tr>
-				<!--<th>Controls</th> -->
                 <th>Name</th>
-                <!--<th>Stream</th> -->
                 <th>Start</th>
-                <th>Duration</th>
+                <th>Recorded</th>
+                <th>Remove</th>
             </tr>
-            <tr ng-repeat="x in names">
-				<!-- <td><a id="{{ x.VodId }}" href="#" onclick="return loadSelectedVod(this);"><img src="../img/play_20x20.png"></a><a id="{{ x.VodId }}" href="#" onclick="return deleteVodFromList(this);"><img src="../img/delete_20x20.png"></a></td> -->
-                <td><a id="{{ x.VodId }}" title="{{ x.ReplayTime }}" href="#" onclick="return loadSelectedVod(this);">{{ x.VodName }}</a></td>
+            <tr ng-repeat="x in names" ng-mouseover="vodMouseOver(x)" >
+                <td><a href="#" ng-click="loadVod(x)">{{ x.VodName }}</a></td>
                 <!-- <td>{{ x.Stream }}</td> -->
                 <td>{{ x.ReplayTime }}</td>
-                <td>{{ x.Duration }}</td>
+                <td>{{ x.Recorded }}</td>
+                <td><a href="#" ng-click="removeVod(x)"><img src="../img/delete_20x20.png"></a></td>
             </tr>
         </table>
     </div>
-    <script>
-        function vodController($scope, $http) 
-		{
-            var div = document.getElementById("userid");
-            $http.get("http://retwitch.pingdynamic.com/scripts/GetVodListByUserId.php?userid=" + div.textContent)
-                    .success(function(response) {$scope.names = response;});
-        }
-		
-		function loadSelectedVod(vodId)
-		{
-			console.log("loadSelectedVod Id: " + vodId.id);
-			console.log("loadSelectedVod Title: " + vodId.title);
-			loadVod(vodId.id);
-			seekVod(vodId.title);
-			return false; //Cancels the click
-		}
-		
-		function deleteVodFromList(vodId)
-		{
-			var div = document.getElementById("userid");
-			console.log("deleteVodFromList Id: " + vodId.id);
-			console.log("deleteVodFromList UserId: " + div);
-			//$.post("http://retwitch.pingdynamic.com/scripts/RemoveVodByUserId.php?userid=" + div.textContent)
-			return false; //Cancels the click
-		}
-    </script>
 </div>
 
-
 <div id="footerwrap">
-    <div id="footer">
-        <p></p>
-    </div>
+    <div id="footer"></div>
+</div>
+
 </div>
 
 </div>

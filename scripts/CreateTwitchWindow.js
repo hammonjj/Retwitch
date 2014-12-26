@@ -1,20 +1,26 @@
 //Save Place before leaving
-$(window).bind("beforeunload", function() {
+$(window).bind("beforeunload", function()
+{
     saveVodTime();
     return "";
 });
 
-function getCurrentUser() {
+function getCurrentUser()
+{
     var div = document.getElementById("userid");
     return div.textContent;
 }
 
 //Player embedding
-$(function () {
-	window.onPlayerEvent = function (data) {
-		data.forEach(function (event) {
+$(function ()
+{
+	window.onPlayerEvent = function (data)
+    {
+		data.forEach(function (event)
+        {
 			console.log("EVENT: %s", event.event);
-			if(event.event == "playerInit") {
+			if(event.event == "playerInit")
+            {
 				var player = $("#twitch_embed_player")[0];
 				player.playVideo();
 			}
@@ -40,8 +46,8 @@ $(function () {
 });
 
 //Global for current Vod
-var currVodTime = 0;
 var currVod = "";
+var currVodTime = 0;
 function setCurrentVod(vodId)
 {
     currVod = vodId;
@@ -59,17 +65,6 @@ function getCurrentVodTime()
     return player.getVideoTime();
 }
 
-function getClosingVODTiming()
-{
-    if(currVod == "") {return;}
-
-	//Send timing to SQL Database
-    console.log("Saving Vod Timing");
-
-	var player = $("#twitch_embed_player")[0];
-	var currTime = player.getVideoTime();
-}
-
 function saveVodTime()
 {
     if(getCurrentVod() == "") {return;}
@@ -84,7 +79,7 @@ function saveVodTime()
 function seekVod(vodTime)
 {
 	currVodTime = vodTime;
-	console.log("Caching VOD Time: " + vodTime);
+	console.log("Caching Vod Time: " + vodTime);
 }
 
 function loadVod(vodId)
@@ -107,6 +102,14 @@ function loadVod(vodId)
 
 function getVODUrl() 
 {
+    //Make sure this is a twitch link
+    var vodUrl = document.getElementById("vodUrl").value;
+    if (vodUrl.indexOf("twitch.tv") == -1)
+    {
+        alert("Only Twitch.tv links are supported and they must contain 'twitch.tv': " + vodUrl);
+        return;
+    }
+
     //Save Current Vod if one is playing
     if(getCurrentVod() != "")
     {
@@ -117,6 +120,7 @@ function getVODUrl()
     //Load new Vod
 	var pieces = document.getElementById("vodUrl").value.split("/");
 
+    //Fix Twitch prefix.  For whatever reason all vods with a prefix of 'b' are actually stored as 'a'
     var prefix = pieces[pieces.length-2];
     if(pieces[pieces.length-2] == 'b') {prefix = 'a';}
 

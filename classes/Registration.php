@@ -234,7 +234,7 @@ class Registration
                 $this->messages[] = MESSAGE_REGISTRATION_ACTIVATION_SUCCESSFUL;
 				
 				//Create user table for storing VOD information
-				$query_create_user_table = $this->db_connection->prepare('CREATE TABLE _' . $user_id . '(P_VodId varchar(255) NOT NULL, VodName varchar(255), Stream varchar(255), ReplayTime int NOT NULL, Duration int, PRIMARY KEY (P_VodId))');
+				$query_create_user_table = $this->db_connection->prepare('CREATE TABLE _' . $user_id . '(P_VodId varchar(255) NOT NULL, VodName varchar(255), Stream varchar(255), ReplayTime int NOT NULL, Duration int, Recorded varchar(255), PRIMARY KEY (P_VodId))');
 				$query_create_user_table->execute();
             } else {
                 $this->errors[] = MESSAGE_REGISTRATION_ACTIVATION_NOT_SUCCESSFUL;
