@@ -2,16 +2,43 @@
 /*********************/
 /* Class Definitions */
 /*********************/
+.hoverTable tr:hover {
+    background-color: #000080;
+}
+
+.vodinfo:hover .vodtooltip {
+    display: block;
+    opacity: 1;
+}
+
+.vodtooltip {
+    height: auto;
+    display: block;
+    background: #000000;
+    margin-left: 0px;
+    padding: 10px;
+    position: absolute;
+    top: 375px;
+    z-index: 1000;
+    width: auto;
+    -webkit-transition: opacity 0.3s ease-out;
+    opacity: 0;
+    overflow: hidden;
+}
+
 .user_header {
     float: right;
     padding: 5px 5px 5px 5px;
 }
 
 .center {
-    margin-left: auto;
-    margin-right: auto;
-	width: 70%;
-	padding: 5px 5px 5px 5px;
+    position: absolute;
+    top: 30%;
+    left: 45%;
+}
+
+.top {
+    margin-top: 200px;
 }
 
 .hidden {
@@ -56,13 +83,17 @@ p {
     padding: 10px;
 }
 
+tr {
+    text-align: left;
+}
+
 #wrapper {
     margin: 0 auto;
     width: 1150px;
 }
 
 #headerwrap {
-    width: 1150px;
+    width: 1100px;
     float: left;
     margin: 0 auto;
 }
@@ -83,20 +114,22 @@ p {
 }
 
 #rightcolumnwrap {
-    width: 500px;
+    width: 450px;
+    max-height: 300px;
+    min-height: 300px;
     float: left;
     margin: 0 auto;
-	/*overflow-y: scroll;*/
+	overflow-y: scroll;
+    border: 1px solid #5c8499;
 }
 
 #rightcolumn {
     border-radius: 10px;
-    border: 1px solid #5c8499;
     margin: 5px;
 }
 
 #footerwrap {
-    width: 1150px;
+    width: 1100px;
     float: left;
     margin: 0 auto;
     clear: both;

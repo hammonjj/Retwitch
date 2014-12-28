@@ -2,7 +2,6 @@
 $(window).bind("beforeunload", function()
 {
     saveVodTime();
-    return "";
 });
 
 function getCurrentUser()
@@ -18,7 +17,7 @@ $(function ()
     {
 		data.forEach(function (event)
         {
-			console.log("EVENT: %s", event.event);
+			//console.log("EVENT: %s", event.event);
 			if(event.event == "playerInit")
             {
 				var player = $("#twitch_embed_player")[0];
@@ -26,7 +25,7 @@ $(function ()
 			}
 			if(event.event == "videoPlaying" && currVodTime != 0)
 			{
-				console.log("Seeking to time: " + currVodTime);
+				//console.log("Seeking to time: " + currVodTime);
 				var player = $("#twitch_embed_player")[0];
 				player.videoSeek(currVodTime);
 				currVodTime = 0;

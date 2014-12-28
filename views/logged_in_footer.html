@@ -11,19 +11,18 @@
 
 <div id="rightcolumnwrap">
     <div id="rightcolumn" >
-        <table>
+        <table class="hoverTable" style="width: 100%;">
+            <colgroup>
+                <col width="100%" />
+                <col width="0%" />
+            </colgroup>
             <tr>
-                <th>Name</th>
-                <th>Start</th>
-                <th>Recorded</th>
-                <th>Remove</th>
+                <th>VOD Name</th>
+                <th></th>
             </tr>
-            <tr ng-repeat="x in names" ng-mouseover="vodMouseOver(x)" >
-                <td><a href="#" ng-click="loadVod(x)">{{ x.VodName }}</a></td>
-                <!-- <td>{{ x.Stream }}</td> -->
-                <td>{{ x.ReplayTime }}</td>
-                <td>{{ x.Recorded }}</td>
-                <td><a href="#" ng-click="removeVod(x)"><img src="../img/delete_20x20.png"></a></td>
+            <tr ng-repeat="x in names">
+                <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:1px;"><div class="vodinfo"><a href="#" ng-click="loadVod(x)">{{ x.VodName }}</a><div class="vodtooltip"><div>Name: {{ x.VodName }}</div><div>Stream: {{ x.Stream }}</div><div>Start: {{ x.FormattedReplayTime }}</div><div>Duration: {{ x.FormattedDuration }}</div><div>Recorded: {{ x.Recorded }}</div></div></div></td>
+                <td style="white-space: nowrap;"><a href="#" ng-click="removeVod(x)"><img src="../img/trash-icon_18x18.png"></a></td>
             </tr>
         </table>
     </div>
